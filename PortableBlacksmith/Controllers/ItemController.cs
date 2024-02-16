@@ -16,14 +16,24 @@ namespace PortableBlacksmith.WebAPI.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("GetAllExistingItems")]
+        [HttpGet("items")]
         [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
         [ProducesResponseType(500)]
-        public IActionResult GetAllExistingItems()
+        public async Task<IActionResult> GetItems()
         {
-            var result = _mediator.Send(new GetAllExistingItemsQuery());
+            var result = await _mediator.Send(new GetAllItemsQuery());
 
-            return new OkObjectResult(result.Result);
+            return new OkObjectResult(result);
+        }
+
+        [HttpGet("items/{id}")]
+        [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetItemById(int id)
+        {
+            var result = await _mediator.Send(new GetItemByIdQuery() { Id = id});
+
+            return new OkObjectResult(result);
         }
     }
 }

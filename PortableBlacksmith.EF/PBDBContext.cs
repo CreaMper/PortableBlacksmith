@@ -9,17 +9,20 @@ namespace PortableBlacksmith.EF
 
         public PBDBContext(DbContextOptions<PBDBContext> options) : base(options)
         {
-            DBInit.Init(this);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("EmbeddedDatabase");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ItemDTO>();
+        }
+
+        public void InitialDataFill()
+        {
+            FillContextData.FillWithData(this);
         }
     }
 }

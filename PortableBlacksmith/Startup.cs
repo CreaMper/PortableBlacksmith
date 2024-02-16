@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using PortableBlacksmith.WebAPI.Configuration;
+using PortableBlacksmith.WebAPI.Services;
 
 namespace PortableBlacksmith.WebAPI
 {
@@ -17,7 +18,6 @@ namespace PortableBlacksmith.WebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureInternalServices();
             services.AddControllers();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddSwaggerGen(c =>
@@ -30,6 +30,8 @@ namespace PortableBlacksmith.WebAPI
 
             services.AddDbContext<PBDBContext>(options =>
                 options.UseInMemoryDatabase("EmbeddedDatabase"));
+
+            services.ConfigureInternalServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -47,6 +49,7 @@ namespace PortableBlacksmith.WebAPI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.FillMemoryDatabaseWithData();
 
             app.UseAuthorization();
 

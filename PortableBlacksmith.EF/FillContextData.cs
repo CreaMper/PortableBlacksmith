@@ -3,9 +3,9 @@ using PortableBlacksmith.EF.Models;
 
 namespace PortableBlacksmith.EF
 {
-    public static class DBInit
+    public static class FillContextData
     {
-        public static void Init(PBDBContext context)
+        public static void FillWithData(PBDBContext context)
         {
             var items = new List<ItemDTO>
             {

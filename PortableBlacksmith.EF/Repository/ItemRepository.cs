@@ -16,5 +16,10 @@ namespace PortableBlacksmith.EF.Repository
         {
             return await _context.Items.ToListAsync();
         }
+
+        public async Task<ItemDTO?> GetItemByIdAsync(int id)
+        {
+            return await _context.Items.FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }
