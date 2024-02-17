@@ -1,0 +1,20 @@
+﻿@inject NavigationManager NavigationManager
+
+<div id="main-window">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">404 Page not found</h1>
+            <p class="lead">Requested page cannot be found, click to get back to the game!</p>
+            <button class="btn btn-primary" @onclick="GetBackToGame">To game page</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    @code {
+        private void GetBackToGame()
+        {
+            NavigationManager.NavigateTo("/game");
+        }
+    }
+}

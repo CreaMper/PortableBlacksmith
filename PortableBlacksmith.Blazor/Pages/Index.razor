@@ -1,9 +1,25 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Indexs</PageTitle>
+<PageTitle>PortableBlacksmith</PageTitle>
+  
+<div id="main-window">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Portable Blacksmith</h1>
+            <p class="lead">In this application, you will become a real blacksmith with the ability to craft powerful weapons and test their power and durability on unusual objects.</p>
+            <p class="lead">
+                It is a Proof Of Concept and showcase application using .NET technologies. <br />
+                Copyright © 2023 Arkadiusz Wieruchowski
+            </p>
+            <button class="btn btn-primary" @onclick="StartGame">Start</button>
+        </div>
+    </div>
+</div>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private void StartGame()
+    {
+        NavigationManager.NavigateTo("/game");
+    }
+}
