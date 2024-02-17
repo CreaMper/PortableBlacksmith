@@ -27,7 +27,7 @@ namespace PortableBlacksmith.Blazor
             app.UseRouting();
 
             app.MapBlazorHub();
-            app.MapFallbackToPage("/_Host");
+            app.MapFallbackToPage("/Layouts/_Host");
 
             app.Run();
         }

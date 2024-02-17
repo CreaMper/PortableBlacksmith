@@ -50,11 +50,11 @@ namespace PortableBlacksmith.WebAPI
             app.UseStaticFiles();
             app.UseRouting();
             app.FillMemoryDatabaseWithData();
-
+            app.PortBroadcast();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllers();
             });
         }

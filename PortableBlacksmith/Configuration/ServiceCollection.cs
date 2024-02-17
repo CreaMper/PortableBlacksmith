@@ -1,4 +1,7 @@
-﻿using PortableBlacksmith.EF;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http.Features;
+using PortableBlacksmith.EF;
 using PortableBlacksmith.WebAPI.Converters;
 using PortableBlacksmith.WebAPI.Converters.Interface;
 using PortableBlacksmith.WebAPI.Services;
@@ -10,9 +13,13 @@ namespace PortableBlacksmith.WebAPI.Configuration
         public static void ConfigureInternalServices(this IServiceCollection services)
         {
             services.AddTransient<DatabaseInitializationService>();
-
             services.AddTransient<IFactory, Factory>();
             services.AddTransient<IItemConverter, ItemConverter>();
+            services.AddTransient<ApiHostDataBroadcastService>();
+            services.AddSingleton(provider =>
+            {
+                return provider.GetRequiredService<IServer>().Features.Get<IServerAddressesFeature>();
+            });
         }
     }
 }

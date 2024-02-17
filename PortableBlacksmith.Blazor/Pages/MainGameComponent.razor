@@ -1,0 +1,15 @@
+﻿@page "/game"
+@inherits ComponentServiceInjector
+
+<h2>WORK IN PROGRESS</h2>
+
+
+@if (Items != null)
+{
+        <ul>
+        @foreach (var item in Items)
+        {
+                    <li>@item.Name [Mods: @item.Modifiers.Count]</li>
+        }
+        </ul>
+}

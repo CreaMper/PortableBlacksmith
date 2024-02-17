@@ -16,7 +16,7 @@ namespace PortableBlacksmith.Common.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("items")]
+        [HttpGet("get-all")]
         [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetItems()
@@ -26,7 +26,7 @@ namespace PortableBlacksmith.Common.Controllers
             return new OkObjectResult(result);
         }
 
-        [HttpGet("items/{id}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetItemById(int id)

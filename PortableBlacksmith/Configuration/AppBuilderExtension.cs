@@ -15,5 +15,14 @@ namespace PortableBlacksmith.WebAPI.Configuration
                 fillingService.FillWithData();
             }
         }
+
+        public static async Task PortBroadcast(this IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var pipeservice = scope.ServiceProvider.GetRequiredService<ApiHostDataBroadcastService>();
+                await pipeservice.Start();
+            }
+        }
     }
 }
