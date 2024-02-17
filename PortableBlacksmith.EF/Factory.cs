@@ -17,5 +17,13 @@ namespace PortableBlacksmith.EF
                 return new ItemRepository(_context); 
             }
         }
+
+        public IItemHasModifiersRepository ItemHasModifiersRepository
+        {
+            get
+            {
+                return new ItemHasModifiersRepository(_context);
+            }
+        }
     }
 }

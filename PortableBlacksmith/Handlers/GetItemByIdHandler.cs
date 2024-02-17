@@ -20,11 +20,15 @@ namespace PortableBlacksmith.WebAPI.Handlers
 
         public async Task<ItemDto> Handle(GetItemByIdQuery request, CancellationToken cancellationToken)
         {
-            var result = await _factory.ItemRepository.GetItemByIdAsync(request.Id);
-            if (result == null)
+            var itemData = await _factory.ItemRepository.GetItemByIdAsync(request.Id);
+            if (itemData == null)
                 return null;
 
-            return _converter.Convert(result);
+            var itemModifiers = await _factory.ItemHasModifiersRepository.GetItemModifiersAsync(request.Id);
+            if (itemModifiers == null)
+                return null;
+
+            return _converter.Convert(itemData, itemModifiers);
         }
     }
 }

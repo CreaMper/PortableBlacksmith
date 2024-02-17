@@ -5,5 +5,6 @@ namespace PortableBlacksmith.EF
     public interface IFactory
     {
         IItemRepository ItemRepository { get; }
+        IItemHasModifiersRepository ItemHasModifiersRepository { get; }
     }
 }
