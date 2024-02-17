@@ -1,4 +1,4 @@
-﻿namespace PortableBlacksmith.WebAPI.Models
+﻿namespace PortableBlacksmith.Common.Models
 {
     public class ItemDto
     {

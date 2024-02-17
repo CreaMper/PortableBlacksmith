@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using PortableBlacksmith.WebAPI.Models;
+using PortableBlacksmith.Common.Models;
 
 namespace PortableBlacksmith.WebAPI.Command
 {

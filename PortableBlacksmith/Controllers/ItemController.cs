@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PortableBlacksmith.WebAPI.Models;
+using PortableBlacksmith.Common.Models;
 using PortableBlacksmith.WebAPI.Query;
 
-namespace PortableBlacksmith.WebAPI.Controllers
+namespace PortableBlacksmith.Common.Controllers
 {
     [Route("v1/[controller]")]
     [Controller]

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PortableBlacksmith.WebAPI.Models;
+using PortableBlacksmith.Common.Models;
 
 namespace PortableBlacksmith.WebAPI.Query
 {

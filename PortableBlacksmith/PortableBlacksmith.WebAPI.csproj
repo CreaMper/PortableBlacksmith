@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PortableBlacksmith.Common\PortableBlacksmith.Common.csproj" />
     <ProjectReference Include="..\PortableBlacksmith.EF\PortableBlacksmith.EF.csproj" />
   </ItemGroup>
 

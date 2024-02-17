@@ -5,10 +5,23 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.WebAPI", "PortableBlacksmith\PortableBlacksmith.WebAPI.csproj", "{2022493A-5023-4048-88B7-4A4171233730}"
 	ProjectSection(ProjectDependencies) = postProject
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3} = {02F331BB-2923-449B-9EAB-9DE1CE2B20F3}
 		{5F027F1A-F4DA-4353-A44D-172FA6806980} = {5F027F1A-F4DA-4353-A44D-172FA6806980}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.EF", "PortableBlacksmith.EF\PortableBlacksmith.EF.csproj", "{5F027F1A-F4DA-4353-A44D-172FA6806980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableBlacksmith.Blazor", "PortableBlacksmith.Blazor\PortableBlacksmith.Blazor.csproj", "{5B1772B1-7E31-4A11-801B-BA6691608E42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3} = {02F331BB-2923-449B-9EAB-9DE1CE2B20F3}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{485186E1-8366-4C47-BAA4-EF81D72E3782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableBlacksmith.Common", "PortableBlacksmith.Common\PortableBlacksmith.Common.csproj", "{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F027F1A-F4DA-4353-A44D-172FA6806980} = {5F027F1A-F4DA-4353-A44D-172FA6806980}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,9 +37,20 @@ Global
 		{5F027F1A-F4DA-4353-A44D-172FA6806980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F027F1A-F4DA-4353-A44D-172FA6806980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F027F1A-F4DA-4353-A44D-172FA6806980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1772B1-7E31-4A11-801B-BA6691608E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1772B1-7E31-4A11-801B-BA6691608E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1772B1-7E31-4A11-801B-BA6691608E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1772B1-7E31-4A11-801B-BA6691608E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3} = {485186E1-8366-4C47-BAA4-EF81D72E3782}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {030AEF07-A899-498E-AF5A-A8BBA2310DA7}

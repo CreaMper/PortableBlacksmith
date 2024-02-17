@@ -1,7 +1,7 @@
 ﻿using PortableBlacksmith.EF.Models;
 using PortableBlacksmith.WebAPI.Converters.Interface;
-using PortableBlacksmith.WebAPI.Models;
-using PortableBlacksmith.WebAPI.Utils;
+using PortableBlacksmith.Common.Models;
+using PortableBlacksmith.Common.Utils;
 
 namespace PortableBlacksmith.WebAPI.Converters
 {

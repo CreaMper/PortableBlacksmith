@@ -1,4 +1,4 @@
-﻿namespace PortableBlacksmith.WebAPI.Utils
+﻿namespace PortableBlacksmith.Common.Utils
 {
     public enum ModifierTypes
     {

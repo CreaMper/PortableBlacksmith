@@ -1,6 +1,6 @@
-﻿using PortableBlacksmith.WebAPI.Utils;
+﻿using PortableBlacksmith.Common.Utils;
 
-namespace PortableBlacksmith.WebAPI.Models
+namespace PortableBlacksmith.Common.Models
 {
     public class ItemModifierDto
     {
