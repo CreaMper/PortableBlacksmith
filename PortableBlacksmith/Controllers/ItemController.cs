@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PortableBlacksmith.Common.Models;
+using PortableBlacksmith.WebAPI.Command;
 using PortableBlacksmith.WebAPI.Query;
 
 namespace PortableBlacksmith.Common.Controllers
@@ -32,6 +33,16 @@ namespace PortableBlacksmith.Common.Controllers
         public async Task<IActionResult> GetItemById(int id)
         {
             var result = await _mediator.Send(new GetItemByIdQuery() { Id = id});
+
+            return new OkObjectResult(result);
+        }
+
+        [HttpPost()]
+        [ProducesResponseType(typeof(IEnumerable<ItemDto>), 201)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> CreateItem([FromBody] CreateItemCommand command)
+        {
+            var result = await _mediator.Send(command);
 
             return new OkObjectResult(result);
         }

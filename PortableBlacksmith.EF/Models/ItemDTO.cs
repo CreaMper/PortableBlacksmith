@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public BaseItemDTO? Base { get; set; }
+        public ItemHasModifiersDTO? ItemHasModifiers { get; set; }
     }
 }

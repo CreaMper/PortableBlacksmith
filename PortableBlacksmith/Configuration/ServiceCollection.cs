@@ -5,6 +5,7 @@ using PortableBlacksmith.EF;
 using PortableBlacksmith.WebAPI.Converters;
 using PortableBlacksmith.WebAPI.Converters.Interface;
 using PortableBlacksmith.WebAPI.Services;
+using PortableBlacksmith.WebAPI.Services.Interfaces;
 
 namespace PortableBlacksmith.WebAPI.Configuration
 {
@@ -15,6 +16,8 @@ namespace PortableBlacksmith.WebAPI.Configuration
             services.AddTransient<DatabaseInitializationService>();
             services.AddTransient<IFactory, Factory>();
             services.AddTransient<IItemConverter, ItemConverter>();
+            services.AddTransient<IModifierService, ModifierService>();
+            services.AddTransient<IBaseModifierService, BaseModifierService>();
             services.AddTransient<ApiHostDataBroadcastService>();
             services.AddSingleton(provider =>
             {

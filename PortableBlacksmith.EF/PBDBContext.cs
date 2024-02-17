@@ -20,12 +20,25 @@ namespace PortableBlacksmith.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ItemDTO>();
+            modelBuilder.Entity<ItemHasModifiersDTO>()
+                .HasMany(item => item.BaseModfiers)
+                .WithOne(modifier => modifier.BaseModifier)
+                .HasForeignKey(modifier => modifier.BaseModifierId);
+
+            modelBuilder.Entity<ItemHasModifiersDTO>()
+                .HasMany(item => item.PrefixModifiers)
+                .WithOne(modifier => modifier.PrefixModifier)
+                .HasForeignKey(modifier => modifier.PrefixModifierId);
+
+            modelBuilder.Entity<ItemHasModifiersDTO>()
+                .HasMany(item => item.SuffixModifiers)
+                .WithOne(modifier => modifier.SuffixModifier)
+                .HasForeignKey(modifier => modifier.SuffixModifierId);
         }
 
         public void InitialDataFill()
         {
-            FillContextData.FillWithData(this);
+            //FillContextData.FillWithData(this);
         }
     }
 }

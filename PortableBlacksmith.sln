@@ -10,18 +10,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.WebAPI",
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.EF", "PortableBlacksmith.EF\PortableBlacksmith.EF.csproj", "{5F027F1A-F4DA-4353-A44D-172FA6806980}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3} = {02F331BB-2923-449B-9EAB-9DE1CE2B20F3}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableBlacksmith.Blazor", "PortableBlacksmith.Blazor\PortableBlacksmith.Blazor.csproj", "{5B1772B1-7E31-4A11-801B-BA6691608E42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.Blazor", "PortableBlacksmith.Blazor\PortableBlacksmith.Blazor.csproj", "{5B1772B1-7E31-4A11-801B-BA6691608E42}"
 	ProjectSection(ProjectDependencies) = postProject
 		{02F331BB-2923-449B-9EAB-9DE1CE2B20F3} = {02F331BB-2923-449B-9EAB-9DE1CE2B20F3}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{485186E1-8366-4C47-BAA4-EF81D72E3782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableBlacksmith.Common", "PortableBlacksmith.Common\PortableBlacksmith.Common.csproj", "{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5F027F1A-F4DA-4353-A44D-172FA6806980} = {5F027F1A-F4DA-4353-A44D-172FA6806980}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortableBlacksmith.Common", "PortableBlacksmith.Common\PortableBlacksmith.Common.csproj", "{02F331BB-2923-449B-9EAB-9DE1CE2B20F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
