@@ -4,7 +4,7 @@ using PortableBlacksmith.Common.Models;
 
 namespace PortableBlacksmith.WebAPI.Query
 {
-    public class GetItemByIdQuery : IRequest<ItemDto>
+    public class GetItemByIdQuery : IRequest<ActionResult<ItemDto>>
     {
         [FromRoute]
         public int Id { get; set; }

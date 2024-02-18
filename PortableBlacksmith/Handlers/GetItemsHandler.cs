@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using PortableBlacksmith.Common.Models;
 using PortableBlacksmith.EF;
 using PortableBlacksmith.WebAPI.Converters.Interface;
@@ -6,7 +7,7 @@ using PortableBlacksmith.WebAPI.Query;
 
 namespace PortableBlacksmith.WebAPI.Handlers
 {
-    public class GetItemsHandler : IRequestHandler<GetAllItemsQuery, IEnumerable<ItemDto>>
+    public class GetItemsHandler : IRequestHandler<GetAllItemsQuery, ActionResult<IEnumerable<ItemDto>>>
     {
         private readonly IFactory _factory;
         private readonly IItemConverter _converter;
@@ -17,7 +18,7 @@ namespace PortableBlacksmith.WebAPI.Handlers
             _converter = converter;
         }
 
-        public async Task<IEnumerable<ItemDto>> Handle(GetAllItemsQuery request, CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<ItemDto>>> Handle(GetAllItemsQuery request, CancellationToken cancellationToken)
         {
             var itemList = new List<ItemDto>();
 
@@ -25,9 +26,6 @@ namespace PortableBlacksmith.WebAPI.Handlers
             foreach (var item in items)
             {
                 var modifiers = await _factory.ItemHasModifiersRepository.GetItemModifiersAsync(item.Id);
-                if (modifiers == null)
-                    return null;
-
                 itemList.Add(_converter.Convert(item, modifiers));
             }
 

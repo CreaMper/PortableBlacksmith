@@ -20,31 +20,31 @@ namespace PortableBlacksmith.Common.Controllers
         [HttpGet("get-all")]
         [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetItems()
+        public async Task<ActionResult<IEnumerable<ItemDto>>> GetItems()
         {
             var result = await _mediator.Send(new GetAllItemsQuery());
 
-            return new OkObjectResult(result);
+            return result;
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(IEnumerable<ItemDto>), 200)]
+        [ProducesResponseType(typeof(ItemDto), 200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetItemById(int id)
+        public async Task<ActionResult<ItemDto>> GetItemById(int id)
         {
             var result = await _mediator.Send(new GetItemByIdQuery() { Id = id});
 
-            return new OkObjectResult(result);
+            return result;
         }
 
         [HttpPost()]
-        [ProducesResponseType(typeof(IEnumerable<ItemDto>), 201)]
+        [ProducesResponseType(typeof(ItemDto), 201)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> CreateItem([FromBody] CreateItemCommand command)
+        public async Task<ActionResult<ItemDto>> CreateItem([FromBody] CreateItemCommand command)
         {
             var result = await _mediator.Send(command);
 
-            return new OkObjectResult(result);
+            return result;
         }
     }
 }
