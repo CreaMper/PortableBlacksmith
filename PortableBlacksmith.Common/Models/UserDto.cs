@@ -1,6 +1,4 @@
-﻿using PortableBlacksmith.EF.Models;
-
-namespace PortableBlacksmith.WebAPI.Models
+﻿namespace PortableBlacksmith.Common.Models
 {
     public class UserDto
     {

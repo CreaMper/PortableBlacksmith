@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PortableBlacksmith.EF;
 using PortableBlacksmith.WebAPI.Converters;
-using PortableBlacksmith.WebAPI.Models;
+using PortableBlacksmith.Common.Models;
 using PortableBlacksmith.WebAPI.Query;
 
 namespace PortableBlacksmith.WebAPI.Handlers
