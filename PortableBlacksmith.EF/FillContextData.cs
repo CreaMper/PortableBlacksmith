@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using PortableBlacksmith.EF.Models;
 
 namespace PortableBlacksmith.EF
@@ -7,58 +7,28 @@ namespace PortableBlacksmith.EF
     {
         public static void FillWithData(PBDBContext context)
         {
-            var items = new List<ItemDTO>
+            var defaultUser = context.User.Add(new UserDTO
             {
-                new ItemDTO() 
+                Name = $"Player #{new Random().Next(1000, 9999)}",
+                Wallet = new CurrencyDTO()
                 {
-                    Id = 1,
-                    Base = new BaseItemDTO()
-                    {
-                        ID = 1,
-                        Name = "Stainless Fork",
-                        Type = "One-Handed"
-                    }
+                    Gold = 10,
+                    Mithrill = 1,
+                    Steel = 0,
+                    Warcraftium = 0
                 }
-            };
-            context.Item.AddRange(items);
+            });
 
-            var itemHasModifier = new List<ItemHasModifiersDTO>()
+            context.SaveChanges();
+
+            context.UserEnergy.Add(new UserEnergyDTO()
             {
-                new ItemHasModifiersDTO()
-                {
-                    Id = 1,
-                    ItemId = 1,
-                    BaseModfiers = new List<ModifierDTO>{ 
-                        new ModifierDTO() 
-                        {
-                            Id = 1,
-                            Name = "CRIT",
-                            Tier = 1,
-                            Value = 7
-                        } 
-                    },
-                    PrefixModifiers = new List<ModifierDTO>{
-                        new ModifierDTO()
-                        {
-                            Id = 2,
-                            Name = "PHYS_FLAT",
-                            Tier = 1,
-                            Value = 10
-                        }
-                    },
-                    SuffixModifiers = new List<ModifierDTO>{
-                        new ModifierDTO()
-                        {
-                            Id = 3,
-                            Name = "DEF_RED",
-                            Tier = 1,
-                            Value = 2
-                        }
-                    },
-                }
-            };
-
-            context.ItemHasModifier.AddRange(itemHasModifier);
+                Current = 10,
+                Max = 100,
+                Min = 0,
+                UserId = defaultUser.Entity.Id,
+                Updated = DateTime.UtcNow
+            });
 
             context.SaveChanges();
         }

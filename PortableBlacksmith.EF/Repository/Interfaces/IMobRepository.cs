@@ -2,7 +2,7 @@
 
 namespace PortableBlacksmith.EF.Repository.Interfaces
 {
-    public interface IItemRepository : IMainRepository<ItemDTO>
+    public interface IMobRepository : IMainRepository<MobDTO>
     {
     }
 }

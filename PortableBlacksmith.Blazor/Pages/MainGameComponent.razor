@@ -4,12 +4,7 @@
 <h2>WORK IN PROGRESS</h2>
 
 
-@if (Items != null)
+@if (UserData != null)
 {
-        <ul>
-        @foreach (var item in Items)
-        {
-                    <li>@item.Name [Mods: @item.Modifiers.Count]</li>
-        }
-        </ul>
+        <ul> @UserData.Name</ul>
 }

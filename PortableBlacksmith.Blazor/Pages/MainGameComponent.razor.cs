@@ -1,20 +1,19 @@
-﻿using Microsoft.AspNetCore.Components;
-using PortableBlacksmith.Common.Models;
+﻿using PortableBlacksmith.Common.Models;
 
 namespace PortableBlacksmith.Blazor.Pages
 {
     public partial class MainGameComponent
     {
-        List<ItemDto> Items;
+        UserDto? UserData;
         protected override async Task OnInitializedAsync()
         {
             using (RESTService)
             {
-                var response = await RESTService.GetAsync<List<ItemDto>>("/v1/item/get-all");
+                var response = await RESTService.GetAsync<UserDto>("/v1/User/1");
                 if (!response.IsSuccess)
                     ResponseService.React(response);
 
-                Items = response.Result;
+                UserData = response.Result;
             }
         }
     }
