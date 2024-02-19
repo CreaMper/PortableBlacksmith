@@ -3,10 +3,10 @@ using PortableBlacksmith.EF.Repository.Interfaces;
 
 namespace PortableBlacksmith.EF.Repository
 {
-    public class ItemRepository : MainRepository<ItemDTO>, IItemRepository
+    public class BaseTypeRepository : MainRepository<BaseTypeDTO>, IBaseTypeRepository
     {
         private readonly PBDBContext _context;
-        public ItemRepository(PBDBContext context) : base(context)
+        public BaseTypeRepository(PBDBContext context) : base(context)
         {
             _context = context;
         }

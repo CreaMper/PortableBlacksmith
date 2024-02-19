@@ -1,12 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PortableBlacksmith.Common.Models;
+using PortableBlacksmith.WebAPI.Models;
 
 namespace PortableBlacksmith.WebAPI.Query
 {
-    public class GetItemByIdQuery : IRequest<ActionResult<ItemDto>>
+    public class GetUserQuery : IRequest<ActionResult<UserDto>>
     {
-        [FromRoute]
         public int Id { get; set; }
     }
 }

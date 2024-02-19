@@ -10,7 +10,7 @@ namespace PortableBlacksmith.Blazor.Pages
         {
             using (RESTService)
             {
-                var response = await RESTService.GetAsync<List<ItemDto>>("/v1/item/get-all");
+                var response = await RESTService.GetAsync<List<ItemDto>>("/v1/item/get-alls");
                 if (!response.IsSuccess)
                     ResponseService.React(response);
 

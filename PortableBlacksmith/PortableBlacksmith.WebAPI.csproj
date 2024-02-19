@@ -16,4 +16,8 @@
     <ProjectReference Include="..\PortableBlacksmith.EF\PortableBlacksmith.EF.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Command\" />
+  </ItemGroup>
+
 </Project>
