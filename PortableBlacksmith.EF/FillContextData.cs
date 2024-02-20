@@ -23,7 +23,7 @@ namespace PortableBlacksmith.EF
 
             context.UserEnergy.Add(new UserEnergyDTO()
             {
-                Current = 10,
+                Current = 50,
                 Max = 100,
                 Min = 0,
                 UserId = defaultUser.Entity.Id,

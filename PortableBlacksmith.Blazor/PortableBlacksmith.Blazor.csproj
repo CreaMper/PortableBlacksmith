@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.Toast" Version="4.1.0" />
+    <PackageReference Include="MudBlazor" Version="6.16.0" />
   </ItemGroup>
 
   <ItemGroup>

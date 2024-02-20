@@ -1,5 +1,6 @@
 ﻿using Blazored.Toast;
 using Blazored.Toast.Services;
+using MudBlazor.Services;
 using PortableBlacksmith.Blazor.Services;
 using PortableBlacksmith.Common.Utils;
 
@@ -21,7 +22,7 @@ namespace PortableBlacksmith.Blazor.Configuration
             services.AddTransient<IRESTService, RESTService>();
             services.AddTransient<IResponseService, ResponseService>();
             services.AddTransient<IToastService, ToastService>();
-
+            services.AddMudServices();
             services.AddBlazoredToast();
 
 

@@ -1,0 +1,26 @@
+﻿@inherits ComponentServiceInjector
+
+@if (UserBasicData != null){
+    <p class="user-label">@UserBasicData.Name</p>
+
+    <div class="energy-bar-container">
+        <div class="energy-bar-label">
+            <MudIcon Icon="@Icons.Material.Filled.BatteryChargingFull" Title="Favorite" />
+        </div>
+        <div class="energy-bar">
+            <MudProgressLinear Color="Color.Primary" Value="@EnergyBarValueLoad" Class="my-7" />
+            <div class="energy-bar-value">Recharging: @EnergyCountdown.ToString("F2") s</div>
+        </div>
+    </div>
+
+    <div class="energy-bar-container">
+        <div class="energy-bar-label">
+            <MudIcon Icon="@Icons.Material.Filled.Handyman" Title="Favorite" />
+        </div>
+        <div class="energy-bar">
+            <MudProgressLinear Color="Color.Secondary" Value="@EnergyBarValue" />
+            <div class="energy-bar-value">@EnergyBarValue / @UserBasicData.Energy.Max</div>
+        </div>
+    </div>
+
+}

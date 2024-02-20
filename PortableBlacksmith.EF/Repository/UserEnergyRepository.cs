@@ -14,8 +14,21 @@ namespace PortableBlacksmith.EF.Repository
 
         public async Task<UserEnergyDTO?> GetEnergyForUserIdAsync(int id)
         {
-            var user = await _context.UserEnergy.FirstOrDefaultAsync(x => x.UserId == id);
-            return user;
+            var userEnergy = await _context.UserEnergy.FirstOrDefaultAsync(x => x.UserId == id);
+
+            //calculate if energy recovered
+            var differenceInSeconds = (DateTime.UtcNow - userEnergy.Updated).TotalSeconds;
+            if (userEnergy.Current < userEnergy.Max)
+            {
+                userEnergy.Current += (int)Math.Floor(differenceInSeconds / 2);
+                if (userEnergy.Current > userEnergy.Max)
+                    userEnergy.Current = userEnergy.Max;
+
+                userEnergy.Updated = DateTime.UtcNow;
+                _context.UserEnergy.Update(userEnergy);
+            }
+
+            return userEnergy;
         }
     }
 }

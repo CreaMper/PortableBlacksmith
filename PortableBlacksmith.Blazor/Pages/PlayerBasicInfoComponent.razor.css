@@ -1,0 +1,28 @@
+﻿.user-label {
+    font-size: 20px;
+}
+
+.energy-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+.energy-bar-label {
+    margin-right: 10px; 
+}
+
+.energy-bar {
+    flex-grow: 1;
+    min-width: 200px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.energy-bar-value {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -30px;
+}
