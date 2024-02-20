@@ -11,7 +11,25 @@ namespace PortableBlacksmith.Blazor.Pages
         public double EnergyCountdown { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            using (RESTService)
+            UserBasicData = new UserDto()
+            {
+                Name = "test",
+                Currency = new CurrencyDto()
+                {
+                    Gold = 1,
+                    Mithrill = 2,
+                    Steel = 11,
+                    Warcraftium = 0
+                },
+                Energy = new EnergyDto()
+                {
+                    Current = 10,
+                    Max = 100,
+                    Min = 0,
+                    Updated = DateTime.UtcNow
+                }
+            };
+/*            using (RESTService)
             {
                 var response = await RESTService.GetAsync<UserDto>("/v1/User/1");
                 if (!response.IsSuccess)
@@ -19,7 +37,7 @@ namespace PortableBlacksmith.Blazor.Pages
 
                 UserBasicData = response.Result;
                 EnergyBarValue = (int)((UserBasicData.Energy.Current / (double)UserBasicData.Energy.Max)*100);
-            }
+            }*/
             SimulateEnergyLoad();
             StartEnergyCountdown();
         }

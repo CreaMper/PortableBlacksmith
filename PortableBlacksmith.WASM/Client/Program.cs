@@ -1,7 +1,8 @@
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using PortableBlacksmith.Blazor.Configuration;
+using PortableBlacksmith.WASM;
 
-namespace PortableBlacksmith.Blazor
+namespace PortableBlacksmith.WASM
 {
     public class Program
     {
@@ -9,8 +10,10 @@ namespace PortableBlacksmith.Blazor
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
+            builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.ConfigureInternalServices();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
             await builder.Build().RunAsync();
         }
     }
