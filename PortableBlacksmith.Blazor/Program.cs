@@ -1,35 +1,17 @@
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using PortableBlacksmith.Blazor.Configuration;
 
 namespace PortableBlacksmith.Blazor
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddRazorPages();
-            builder.Services.AddServerSideBlazor();
-            
-            builder.Services.ConfigureInternalServices();
-            var app = builder.Build();
-
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.MapBlazorHub();
-            app.MapFallbackToPage("/Layouts/_Host");
-
-            app.Run();
+            builder.ConfigureInternalServices();
+            await builder.Build().RunAsync();
         }
     }
 }
